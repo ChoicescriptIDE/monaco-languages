@@ -5,6 +5,14 @@
 
 'use strict';
 
-import { testTokenization } from '../test/testRunner';
+import { registerLanguage } from '../_.contribution';
 
-testTokenization('csp', []);
+// Allow for running under nodejs/requirejs in tests
+const _monaco: typeof monaco = (typeof monaco === 'undefined' ? (<any>self).monaco : monaco);
+
+registerLanguage({
+	id: 'choicescript',
+	extensions: ['.txt'],
+	aliases: ['ChoiceScript', 'cs'],
+	loader: () => _monaco.Promise.wrap(import('./choicescript'))
+});
