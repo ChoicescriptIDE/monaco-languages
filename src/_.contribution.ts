@@ -4,6 +4,8 @@
  *--------------------------------------------------------------------------------------------*/
 'use strict';
 
+import IStandaloneThemeData = monaco.editor.IStandaloneThemeData;
+
 // Allow for running under nodejs/requirejs in tests
 const _monaco: typeof monaco = (typeof monaco === 'undefined' ? (<any>self).monaco : monaco);
 
@@ -43,4 +45,8 @@ export function registerLanguage(def: ILang): void {
 	_monaco.languages.onLanguage(languageId, () => {
 		loadLanguage(languageId);
 	});
+}
+
+export function registerTheme(themeName: string, themeData: IStandaloneThemeData): void {
+	_monaco.editor.defineTheme(themeName, themeData);
 }

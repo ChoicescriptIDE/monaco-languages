@@ -5,7 +5,8 @@
 
 'use strict';
 
-import { registerLanguage } from '../_.contribution';
+import { registerLanguage, registerTheme } from '../_.contribution';
+import { darkTheme, lightTheme } from './choicescript';
 
 // Allow for running under nodejs/requirejs in tests
 const _monaco: typeof monaco = (typeof monaco === 'undefined' ? (<any>self).monaco : monaco);
@@ -16,3 +17,7 @@ registerLanguage({
 	aliases: ['ChoiceScript', 'cs'],
 	loader: () => _monaco.Promise.wrap(import('./choicescript'))
 });
+
+// Automatically load themes
+registerTheme("cs-dark", darkTheme);
+registerTheme("cs-light", lightTheme);

@@ -101,11 +101,17 @@ export const darkTheme = <IStandaloneThemeData>{
         { token: 'custom-notice', foreground: 'FFA500' },
         { token: 'custom-date', foreground: '008800' },
     ],
-    colors: {
-        /*'editor.foreground': '#000000',
+    /*colors: {
+        'editor.foreground': '#000000',
         'editor.background': '#EDF9FA',
-        'editorCursor.foreground': '#8B0000',*/
+        'editorCursor.foreground': '#8B0000',
         'editor.lineHighlightBackground': '#555',
         'editorLineNumber.foreground': '#CCC',
-    }
+    }*/
+}
+
+export const lightTheme = <IStandaloneThemeData>{
+    base: "vs",
+    inherit: true,
+    rules: []
 }
