@@ -4,6 +4,7 @@ const fs = require('fs');
 const terser = require('terser');
 const glob = require('glob');
 const helpers = require('monaco-plugin-helpers');
+const { CSIDE_LANG_LIST } = require('../src/cside.js');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 
@@ -38,6 +39,11 @@ glob('out/amd/*/*.contribution.js', { cwd: path.dirname(__dirname) }, function (
 });
 
 function bundleOne(moduleId, exclude) {
+	if (
+		moduleId !== 'monaco.contribution' &&
+		CSIDE_LANG_LIST.indexOf(moduleId) < 0
+	)
+		return;
 	requirejs.optimize(
 		{
 			baseUrl: 'out/amd/',

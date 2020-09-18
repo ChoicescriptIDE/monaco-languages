@@ -12,5 +12,7 @@
 			"es2015.iterable",
 			"es2015.promise"
 		]
-	}
+	},
+	"include": ["*.ts", "choicescript/*.ts", "css/*.ts", "markdown/*.ts"],
+	"files": ["fillers/monaco-editor-core-amd.ts"]
 }
