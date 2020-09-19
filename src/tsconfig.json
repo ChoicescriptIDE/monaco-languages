@@ -5,13 +5,7 @@
 		"outDir": "../out/amd",
 		"target": "es5",
 		"strict": true,
-		"lib": [
-			"dom",
-			"es5",
-			"es2015.collection",
-			"es2015.iterable",
-			"es2015.promise"
-		]
+		"lib": ["dom", "es5", "es2015.collection", "es2015.iterable", "es2015.promise"]
 	},
 	"include": ["*.ts", "choicescript/*.ts", "css/*.ts", "markdown/*.ts"],
 	"files": ["fillers/monaco-editor-core-amd.ts"]

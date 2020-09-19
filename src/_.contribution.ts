@@ -21,9 +21,7 @@ const lazyLanguageLoaders: { [languageId: string]: LazyLanguageLoader } = {};
 class LazyLanguageLoader {
 	public static getOrCreate(languageId: string): LazyLanguageLoader {
 		if (!lazyLanguageLoaders[languageId]) {
-			lazyLanguageLoaders[languageId] = new LazyLanguageLoader(
-				languageId
-			);
+			lazyLanguageLoaders[languageId] = new LazyLanguageLoader(languageId);
 		}
 		return lazyLanguageLoaders[languageId];
 	}
@@ -81,9 +79,6 @@ export function registerLanguage(def: ILang): void {
 	});
 }
 
-export function registerTheme(
-	themeName: string,
-	themeData: IStandaloneThemeData
-): void {
+export function registerTheme(themeName: string, themeData: IStandaloneThemeData): void {
 	editor.defineTheme(themeName, themeData);
 }
