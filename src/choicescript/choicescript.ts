@@ -34,6 +34,13 @@ export const conf: languages.LanguageConfiguration = {
 			),
 			action: { indentAction: languages.IndentAction.Outdent }
 		}
+	],
+	autoClosingPairs: [
+		{ open: '{', close: '}' },
+		{ open: '[', close: ']' },
+		{ open: '(', close: ')' },
+		{ open: '"', close: '"' },
+		{ open: "'", close: "'" }
 	]
 };
 
