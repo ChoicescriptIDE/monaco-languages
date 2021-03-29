@@ -141,7 +141,13 @@ export const language = <languages.IMonarchLanguage>{
 		'console_clear',
 		'console_track_list',
 		'cside_theme_set',
-		'cside_theme_apply'
+		'cside_theme_apply',
+		/* smPlugin */
+		'sm_save',
+		'sm_load',
+		'sm_delete',
+		'sm_update',
+		'sm_menu'
 	],
 	symbols: /[=><&+\-*\/\^%!#]+/,
 	operators: [
@@ -246,7 +252,7 @@ export const language = <languages.IMonarchLanguage>{
 		],
 		string: [
 			// highlight variable replacements inside strings:
-			[/[\$@]\{.*\}/, { token: '@rematch', next: '@variable' }],
+			{ regex: /\${|@{/, action: { token: 'string.variable', bracket: '@open' } },
 			[/[^\\@\$"]+(?!\$\{)/, { token: 'string.string' }],
 			[/\\"/, 'string.escape'],
 			[/\\./, 'string.escape.invalid'],
